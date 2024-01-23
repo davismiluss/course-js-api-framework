@@ -2,12 +2,12 @@ name: API Tests Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
+      
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: docker
 
     steps:
       - name: Checkout Repository

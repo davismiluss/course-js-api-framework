@@ -1,0 +1,23 @@
+name: API Tests Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Print Info
+        run: echo "Building and Pushing Docker Image for API Tests..."
+
+      - name: Build Docker Image
+        run: docker build -t davismiluss/api-tests:latest .
+
+      - name: Push Docker Image
+        run: docker push davismiluss/api-tests:latest
